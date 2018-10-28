@@ -11,13 +11,13 @@
     <script src="https://www.gstatic.com/firebasejs/5.5.6/firebase.js"></script>
 </head>
 <body>
-    <div class="jumbotron jumbotron-fluid bg-primary" id="header">
+    <div class="jumbotron jumbotron-fluid bg-primary rounded" id="header">
         <div class="container">
           <h1 class="display-4">Bay Area Transit Scheduler</h1>
         </div>
     </div>
-    <div class="container border border-primary">
-        <div class="card-header bg-primary">Current Train Schedule</div>
+    <div class="container">
+        <div class="card-header bg-primary border border-primary">Current Train Schedule</div>
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -33,8 +33,27 @@
             </table>
     </div>
     <br>
-    <div class="container border border-primary">
-        <div class="card-header bg-primary">Add Train</div>
+    <div class="container">
+        <div class="card-header bg-primary border border-primary">Add Train</div>
+        <form>
+            <div class="form-group">
+                <label for="inputTrain">Train Name</label>
+                <input type="name" class="form-control" id="inputTrain">
+            </div>
+            <div class="form-group">
+                <label for="inputDestination">Destination</label>
+                <input type="name" class="form-control" id="inputDestination">
+            </div>
+            <div class="form-group">
+                <label for="inputTime">First Train Time (HH:mm - 12 hour time)</label>
+                <input type="name" class="form-control" id="inputTime">
+            </div>
+            <div class="form-group">
+                <label for="inputFrequency">Frequence (min)</label>
+                <input type="name" class="form-control" id="inputFrequency">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
