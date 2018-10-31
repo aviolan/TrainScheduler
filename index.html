@@ -14,7 +14,8 @@
 <body background="assets/images/bayArea.jpg">
     <div class="jumbotron jumbotron-fluid bg-primary rounded" id="header">
         <div class="container">
-          <h1 class="display-4">Bay Area Transit Scheduler</h1>
+          <h1 class="display-4">Bay Area Transit Scheduler</h1><br>
+          <h2 id="currentTime">The current time is: </h2>
         </div>
     </div>
     <div class="card border-primary" id="main">
@@ -46,7 +47,7 @@
                 <input type="name" class="form-control" id="input-destination">
             </div>
             <div class="form-group">
-                <label for="inputTime">First Train Time (HH:mm - 12 hour time)</label>
+                <label for="inputTime">First Train Time (HH:mm - military time)</label>
                 <input type="name" class="form-control" id="input-time">
             </div>
             <div class="form-group">

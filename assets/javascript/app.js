@@ -11,6 +11,9 @@ var config = {
 
 var database = firebase.database();
 
+//Show current time
+$("#currentTime").append(moment().format("HH:mm a"));
+
 //Button for adding trains
 $("#add-train-btn").on("click", function(event) {
     event.preventDefault();
@@ -18,7 +21,7 @@ $("#add-train-btn").on("click", function(event) {
   //Grabs user input
   var trainName = $("#input-train").val().trim();
   var trainDest = $("#input-destination").val().trim();
-  var trainTime = moment($("#input-time").val().trim(), "h:mm a");
+  var trainTime = moment($("#input-time").val().trim(), "h:mm a").format("X");
   var trainFreq = $("#input-frequency").val().trim();
 
   // Creates local "temporary" object for holding train data
@@ -63,16 +66,17 @@ database.ref().on("child_added", function(childSnapshot) {
     console.log(trainTime);
     console.log(trainFreq);
 
-    //Calculate the train times
-    var trainNext = moment().endOf(trainTime).fromNow();
-    console.log("ARRIVAL TIME: " + moment().endOf(trainTime).fromNow());
+    var tRemainder = moment().diff(moment.unix(trainTime), "minutes") % trainFreq;
+    var tMinutes = trainFreq - tRemainder;
+    var tArrival = moment().add(tMinutes, "m").format("HH:mm a");
 
     //Creates new rows
     var newRow = $("<tr>").append(
         $("<td>").text(trainName),
         $("<td>").text(trainDest),
         $("<td>").text(trainFreq),
-        $("<td>").text(trainNext)
+        $("<td>").text(tArrival),
+        $("<td>").text(tMinutes)
     );
 
     //Append the new row to the table
