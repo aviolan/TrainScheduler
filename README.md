@@ -1,4 +1,4 @@
-# TrainScheduler
+# TrainScheduler (https://aviolan.github.io/TrainScheduler/)
 
 User adds a train, the destination, train time, and the frequency.
 
